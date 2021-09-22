@@ -1,0 +1,2478 @@
+
+$ gcc -o gbn.exe gbn.c
+$ ./gbn.exe 30 0.2 0.2 10 2
+   the number of messages to simulate: 30
+   packet loss probability: 0.200000
+   packet corruption probability: 0.200000
+   average time between messages from sender's layer5: 10.000000
+   TRACE: 2
+
+   EVENT time: 7.616899,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=1): aaaaaaaaaaaaaaaaaaa
+      send_window: Sending packet (seq=1): aaaaaaaaaaaaaaaaaaa
+
+   EVENT time: 13.866199,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=1): aaaaaaaaaaaaaaaaaaa
+      B_input: Sending ACK (ack=1)
+
+   EVENT time: 21.546791,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=1)
+      A_input: Stopping timer
+
+   EVENT time: 27.071949,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=2): bbbbbbbbbbbbbbbbbbb
+      send_window: Sending packet (seq=2): bbbbbbbbbbbbbbbbbbb
+
+   EVENT time: 27.966774,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=3): ccccccccccccccccccc
+      send_window: Sending packet (seq=3): ccccccccccccccccccc
+            TOLAYER3: packet being lost
+
+   EVENT time: 30.364256,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=2): bbbbbbbbbbbbbbbbbbb
+      B_input: Sending ACK (ack=2)
+            TOLAYER3: packet being lost
+
+   EVENT time: 40.380829,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=4): ddddddddddddddddddd
+      send_window: Sending packet (seq=4): ddddddddddddddddddd
+
+   EVENT time: 42.071949,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=2): bbbbbbbbbbbbbbbbbbb
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=3): ccccccccccccccccccc
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=4): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 47.169937,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=2)
+            TOLAYER3: packet being lost
+
+   EVENT time: 48.229008,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=2)
+
+   EVENT time: 49.774796,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=5): eeeeeeeeeeeeeeeeeee
+      send_window: Sending packet (seq=5): eeeeeeeeeeeeeeeeeee
+            TOLAYER3: packet being lost
+
+   EVENT time: 52.702698,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=2)
+   Warning: attempt to start a timer that is already started
+      A_input: timer + 15.000000
+
+   EVENT time: 57.071949,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=3): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=4): ddddddddddddddddddd
+      A_timerinterrupt: Resending packet (seq=5): eeeeeeeeeeeeeeeeeee
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 57.598320,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=2)
+            TOLAYER3: packet being lost
+
+   EVENT time: 65.801056,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=3): ccccccccccccccccccc
+      B_input: Sending ACK (ack=3)
+
+   EVENT time: 67.011658,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=6): fffffffffffffffffff
+      send_window: Sending packet (seq=6): fffffffffffffffffff
+
+   EVENT time: 67.569633,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=3)
+   Warning: attempt to start a timer that is already started
+      A_input: timer + 15.000000
+
+   EVENT time: 70.097893,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=4): ddddddddddddddddddd
+      B_input: Sending ACK (ack=4)
+
+   EVENT time: 72.071945,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=4): ddddddddddddddddddd
+      A_timerinterrupt: Resending packet (seq=5): eeeeeeeeeeeeeeeeeee
+      A_timerinterrupt: Resending packet (seq=6): fffffffffffffffffff
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 74.300583,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=5): eeeeeeeeeeeeeeeeeee
+      B_input: Sending ACK (ack=5)
+
+   EVENT time: 76.971001,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=4)
+   Warning: attempt to start a timer that is already started
+      A_input: timer + 15.000000
+
+   EVENT time: 79.152634,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=5)
+   Warning: attempt to start a timer that is already started
+      A_input: timer + 15.000000
+
+   EVENT time: 79.673714,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=6): fffffffffffffffffff
+      B_input: Sending ACK (ack=6)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 82.916023,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=7): ggggggggggggggggggg
+      send_window: Sending packet (seq=7): ggggggggggggggggggg
+            TOLAYER3: packet being lost
+
+   EVENT time: 85.851364,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=6)
+
+   EVENT time: 86.748978,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 87.071945,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=6): fffffffffffffffffff
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=7): ggggggggggggggggggg
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 87.609627,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=8): hhhhhhhhhhhhhhhhhhh
+      send_window: Sending packet (seq=8): hhhhhhhhhhhhhhhhhhh
+
+   EVENT time: 91.397865,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=6)
+   Warning: attempt to start a timer that is already started
+      A_input: timer + 15.000000
+
+   EVENT time: 94.413315,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=6)
+
+   EVENT time: 98.326851,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=6)
+            TOLAYER3: packet being lost
+
+   EVENT time: 98.380234,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=9): iiiiiiiiiiiiiiiiiii
+      send_window: Sending packet (seq=9): iiiiiiiiiiiiiiiiiii
+            TOLAYER3: packet being lost
+
+   EVENT time: 100.408134,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=6). Dropping.
+
+   EVENT time: 102.071945,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=7): ggggggggggggggggggg
+      A_timerinterrupt: Resending packet (seq=8): hhhhhhhhhhhhhhhhhhh
+      A_timerinterrupt: Resending packet (seq=9): iiiiiiiiiiiiiiiiiii
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 106.422226,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=6)
+
+   EVENT time: 108.790627,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=6). Dropping.
+
+   EVENT time: 110.579567,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=10): jjjjjjjjjjjjjjjjjjj
+      send_window: Sending packet (seq=10): jjjjjjjjjjjjjjjjjjj
+
+   EVENT time: 111.731773,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=7): ggggggggggggggggggg
+      B_input: Sending ACK (ack=7)
+
+   EVENT time: 117.022308,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=7)
+   Warning: attempt to start a timer that is already started
+      A_input: timer + 15.000000
+
+   EVENT time: 117.071945,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=8): hhhhhhhhhhhhhhhhhhh
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=9): iiiiiiiiiiiiiiiiiii
+      A_timerinterrupt: Resending packet (seq=10): jjjjjjjjjjjjjjjjjjj
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 118.705986,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=8): hhhhhhhhhhhhhhhhhhh
+      B_input: Sending ACK (ack=8)
+
+   EVENT time: 120.861977,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=8)
+            TOLAYER3: packet being lost
+
+   EVENT time: 123.170982,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=8)
+   Warning: attempt to start a timer that is already started
+      A_input: timer + 15.000000
+
+   EVENT time: 128.728882,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=11): kkkkkkkkkkkkkkkkkkk
+      send_window: Sending packet (seq=11): kkkkkkkkkkkkkkkkkkk
+            TOLAYER3: packet being lost
+
+   EVENT time: 130.265198,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=8)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 132.071945,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=9): iiiiiiiiiiiiiiiiiii
+      A_timerinterrupt: Resending packet (seq=10): jjjjjjjjjjjjjjjjjjj
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=11): kkkkkkkkkkkkkkkkkkk
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 135.721542,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 137.161957,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=9): iiiiiiiiiiiiiiiiiii
+      B_input: Sending ACK (ack=9)
+
+   EVENT time: 140.826279,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=9)
+   Warning: attempt to start a timer that is already started
+      A_input: timer + 15.000000
+
+   EVENT time: 142.219543,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=10): jjjjjjjjjjjjjjjjjjj
+      B_input: Sending ACK (ack=10)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 144.411880,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=12): lllllllllllllllllll
+      send_window: Sending packet (seq=12): lllllllllllllllllll
+
+   EVENT time: 147.071945,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=10): jjjjjjjjjjjjjjjjjjj
+      A_timerinterrupt: Resending packet (seq=11): kkkkkkkkkkkkkkkkkkk
+      A_timerinterrupt: Resending packet (seq=12): lllllllllllllllllll
+            TOLAYER3: packet being lost
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 147.232147,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 147.547516,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=10)
+
+   EVENT time: 156.134674,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=13): mmmmmmmmmmmmmmmmmmm
+      send_window: Sending packet (seq=13): mmmmmmmmmmmmmmmmmmm
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 156.213165,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=10)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 157.215500,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=10)
+   Warning: attempt to start a timer that is already started
+      A_input: timer + 15.000000
+
+   EVENT time: 162.071945,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=11): kkkkkkkkkkkkkkkkkkk
+      A_timerinterrupt: Resending packet (seq=12): lllllllllllllllllll
+      A_timerinterrupt: Resending packet (seq=13): mmmmmmmmmmmmmmmmmmm
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 163.238922,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 164.893753,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=10)
+
+   EVENT time: 168.863480,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=10)
+            TOLAYER3: packet being lost
+
+   EVENT time: 170.791367,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=10). Dropping.
+
+   EVENT time: 172.215515,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=11): kkkkkkkkkkkkkkkkkkk
+      B_input: Sending ACK (ack=11)
+            TOLAYER3: packet being lost
+
+   EVENT time: 175.245682,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=12): lllllllllllllllllll
+      B_input: Sending ACK (ack=12)
+
+   EVENT time: 175.459183,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=14): nnnnnnnnnnnnnnnnnnn
+      send_window: Sending packet (seq=14): nnnnnnnnnnnnnnnnnnn
+
+   EVENT time: 177.071945,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=11): kkkkkkkkkkkkkkkkkkk
+      A_timerinterrupt: Resending packet (seq=12): lllllllllllllllllll
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=13): mmmmmmmmmmmmmmmmmmm
+      A_timerinterrupt: Resending packet (seq=14): nnnnnnnnnnnnnnnnnnn
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 182.357422,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=12)
+   Warning: attempt to start a timer that is already started
+      A_input: timer + 15.000000
+
+   EVENT time: 182.751785,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=12)
+
+   EVENT time: 189.688934,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=12). Dropping.
+
+   EVENT time: 190.288055,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=15): ooooooooooooooooooo
+      send_window: Sending packet (seq=15): ooooooooooooooooooo
+
+   EVENT time: 191.261093,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=12)
+
+   EVENT time: 192.071945,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=13): mmmmmmmmmmmmmmmmmmm
+      A_timerinterrupt: Resending packet (seq=14): nnnnnnnnnnnnnnnnnnn
+      A_timerinterrupt: Resending packet (seq=15): ooooooooooooooooooo
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 192.287109,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=12)
+
+   EVENT time: 193.383026,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=16): ppppppppppppppppppp
+      send_window: Sending packet (seq=16): ppppppppppppppppppp
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 195.621719,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=12). Dropping.
+
+   EVENT time: 198.965576,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=12). Dropping.
+
+   EVENT time: 201.980057,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=12)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 204.578644,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 206.179901,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=17): qqqqqqqqqqqqqqqqqqq
+      send_window: Sending packet (seq=17): qqqqqqqqqqqqqqqqqqq
+
+   EVENT time: 207.071945,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=13): mmmmmmmmmmmmmmmmmmm
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=14): nnnnnnnnnnnnnnnnnnn
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=15): ooooooooooooooooooo
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=16): ppppppppppppppppppp
+      A_timerinterrupt: Resending packet (seq=17): qqqqqqqqqqqqqqqqqqq
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 211.937042,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=12)
+
+   EVENT time: 213.385376,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=12). Dropping.
+
+   EVENT time: 218.601517,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=18): rrrrrrrrrrrrrrrrrrr
+      send_window: Sending packet (seq=18): rrrrrrrrrrrrrrrrrrr
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 219.525909,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=12)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 221.009933,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=12)
+
+   EVENT time: 222.071945,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=13): mmmmmmmmmmmmmmmmmmm
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=14): nnnnnnnnnnnnnnnnnnn
+      A_timerinterrupt: Resending packet (seq=15): ooooooooooooooooooo
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=16): ppppppppppppppppppp
+      A_timerinterrupt: Resending packet (seq=17): qqqqqqqqqqqqqqqqqqq
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=18): rrrrrrrrrrrrrrrrrrr
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 222.459686,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 226.085892,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=12)
+
+   EVENT time: 227.146759,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=13): mmmmmmmmmmmmmmmmmmm
+      B_input: Sending ACK (ack=13)
+            TOLAYER3: packet being lost
+
+   EVENT time: 229.937088,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=19): sssssssssssssssssss
+      send_window: Sending packet (seq=19): sssssssssssssssssss
+            TOLAYER3: packet being lost
+
+   EVENT time: 230.186066,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=13)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 232.173035,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=12). Dropping.
+
+   EVENT time: 232.783615,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=13)
+
+   EVENT time: 234.897888,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=12). Dropping.
+
+   EVENT time: 236.085297,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=13)
+
+   EVENT time: 237.071945,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=13): mmmmmmmmmmmmmmmmmmm
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=14): nnnnnnnnnnnnnnnnnnn
+      A_timerinterrupt: Resending packet (seq=15): ooooooooooooooooooo
+      A_timerinterrupt: Resending packet (seq=16): ppppppppppppppppppp
+      A_timerinterrupt: Resending packet (seq=17): qqqqqqqqqqqqqqqqqqq
+      A_timerinterrupt: Resending packet (seq=18): rrrrrrrrrrrrrrrrrrr
+      A_timerinterrupt: Resending packet (seq=19): sssssssssssssssssss
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 238.105438,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=20): ttttttttttttttttttt
+      send_window: Sending packet (seq=20): ttttttttttttttttttt
+            TOLAYER3: packet being lost
+
+   EVENT time: 238.106201,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=21): uuuuuuuuuuuuuuuuuuu
+
+   EVENT time: 242.454742,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 244.821182,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=14): nnnnnnnnnnnnnnnnnnn
+      B_input: Sending ACK (ack=14)
+
+   EVENT time: 251.329971,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=13)
+   Warning: attempt to start a timer that is already started
+      A_input: timer + 15.000000
+
+   EVENT time: 251.384018,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=15): ooooooooooooooooooo
+      B_input: Sending ACK (ack=15)
+
+   EVENT time: 252.071945,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=14): nnnnnnnnnnnnnnnnnnn
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=15): ooooooooooooooooooo
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=16): ppppppppppppppppppp
+      A_timerinterrupt: Resending packet (seq=17): qqqqqqqqqqqqqqqqqqq
+      A_timerinterrupt: Resending packet (seq=18): rrrrrrrrrrrrrrrrrrr
+      A_timerinterrupt: Resending packet (seq=19): sssssssssssssssssss
+      A_timerinterrupt: Resending packet (seq=20): ttttttttttttttttttt
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 253.298630,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=22): vvvvvvvvvvvvvvvvvvv
+      send_window: Sending packet (seq=21): uuuuuuuuuuuuuuuuuuu
+
+   EVENT time: 258.738953,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=15)
+
+   EVENT time: 259.976685,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=13). Dropping.
+
+   EVENT time: 262.092468,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=14)
+   Warning: attempt to start a timer that is already started
+      A_input: timer + 15.000000
+
+   EVENT time: 262.759735,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=15)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 266.336548,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=15)
+   Warning: attempt to start a timer that is already started
+      A_input: timer + 15.000000
+
+   EVENT time: 266.385742,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=15)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 267.071960,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=16): ppppppppppppppppppp
+      A_timerinterrupt: Resending packet (seq=17): qqqqqqqqqqqqqqqqqqq
+      A_timerinterrupt: Resending packet (seq=18): rrrrrrrrrrrrrrrrrrr
+      A_timerinterrupt: Resending packet (seq=19): sssssssssssssssssss
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=20): ttttttttttttttttttt
+      A_timerinterrupt: Resending packet (seq=21): uuuuuuuuuuuuuuuuuuu
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 268.833649,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=15)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 269.772156,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=15). Dropping.
+
+   EVENT time: 271.579559,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 272.594971,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=23): wwwwwwwwwwwwwwwwwww
+      send_window: Sending packet (seq=22): vvvvvvvvvvvvvvvvvvv
+            TOLAYER3: packet being corrupted
+      send_window: Sending packet (seq=23): wwwwwwwwwwwwwwwwwww
+
+   EVENT time: 273.646698,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=16): ppppppppppppppppppp
+      B_input: Sending ACK (ack=16)
+
+   EVENT time: 274.870880,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 279.840271,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=24): xxxxxxxxxxxxxxxxxxx
+
+   EVENT time: 280.224213,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=25): yyyyyyyyyyyyyyyyyyy
+
+   EVENT time: 280.818207,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 281.214508,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=26): zzzzzzzzzzzzzzzzzzz
+
+   EVENT time: 282.071960,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=16): ppppppppppppppppppp
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=17): qqqqqqqqqqqqqqqqqqq
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=18): rrrrrrrrrrrrrrrrrrr
+      A_timerinterrupt: Resending packet (seq=19): sssssssssssssssssss
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=20): ttttttttttttttttttt
+      A_timerinterrupt: Resending packet (seq=21): uuuuuuuuuuuuuuuuuuu
+      A_timerinterrupt: Resending packet (seq=22): vvvvvvvvvvvvvvvvvvv
+      A_timerinterrupt: Resending packet (seq=23): wwwwwwwwwwwwwwwwwww
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 282.512604,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=17): qqqqqqqqqqqqqqqqqqq
+      B_input: Sending ACK (ack=17)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 284.312531,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=16)
+   Warning: attempt to start a timer that is already started
+      A_input: timer + 15.000000
+
+   EVENT time: 285.905243,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=17)
+
+   EVENT time: 288.033234,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 289.815033,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=17)
+   Warning: attempt to start a timer that is already started
+      A_input: timer + 15.000000
+
+   EVENT time: 294.659302,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=17)
+
+   EVENT time: 295.097290,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      send_window: Sending packet (seq=24): xxxxxxxxxxxxxxxxxxx
+      send_window: Sending packet (seq=25): yyyyyyyyyyyyyyyyyyy
+
+   EVENT time: 297.071960,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=18): rrrrrrrrrrrrrrrrrrr
+      A_timerinterrupt: Resending packet (seq=19): sssssssssssssssssss
+      A_timerinterrupt: Resending packet (seq=20): ttttttttttttttttttt
+      A_timerinterrupt: Resending packet (seq=21): uuuuuuuuuuuuuuuuuuu
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=22): vvvvvvvvvvvvvvvvvvv
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=23): wwwwwwwwwwwwwwwwwww
+      A_timerinterrupt: Resending packet (seq=24): xxxxxxxxxxxxxxxxxxx
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=25): yyyyyyyyyyyyyyyyyyy
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 301.189026,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=17). Dropping.
+
+   EVENT time: 304.571747,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=17)
+
+   EVENT time: 305.696503,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=17)
+
+   EVENT time: 311.039673,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=17). Dropping.
+
+   EVENT time: 312.071960,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=18): rrrrrrrrrrrrrrrrrrr
+      A_timerinterrupt: Resending packet (seq=19): sssssssssssssssssss
+      A_timerinterrupt: Resending packet (seq=20): ttttttttttttttttttt
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=21): uuuuuuuuuuuuuuuuuuu
+      A_timerinterrupt: Resending packet (seq=22): vvvvvvvvvvvvvvvvvvv
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=23): wwwwwwwwwwwwwwwwwww
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=24): xxxxxxxxxxxxxxxxxxx
+      A_timerinterrupt: Resending packet (seq=25): yyyyyyyyyyyyyyyyyyy
+            TOLAYER3: packet being lost
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 314.000885,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=17)
+
+   EVENT time: 315.079803,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=28): bbbbbbbbbbbbbbbbbbb
+
+   EVENT time: 315.337616,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=17). Dropping.
+
+   EVENT time: 322.091309,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=17). Dropping.
+
+   EVENT time: 323.347900,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=17)
+
+   EVENT time: 327.071960,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=18): rrrrrrrrrrrrrrrrrrr
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=19): sssssssssssssssssss
+      A_timerinterrupt: Resending packet (seq=20): ttttttttttttttttttt
+      A_timerinterrupt: Resending packet (seq=21): uuuuuuuuuuuuuuuuuuu
+      A_timerinterrupt: Resending packet (seq=22): vvvvvvvvvvvvvvvvvvv
+      A_timerinterrupt: Resending packet (seq=23): wwwwwwwwwwwwwwwwwww
+      A_timerinterrupt: Resending packet (seq=24): xxxxxxxxxxxxxxxxxxx
+      A_timerinterrupt: Resending packet (seq=25): yyyyyyyyyyyyyyyyyyy
+            TOLAYER3: packet being lost
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 327.534973,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=29): ccccccccccccccccccc
+
+   EVENT time: 328.206573,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=17)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 332.988342,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=17). Dropping.
+
+   EVENT time: 337.098114,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=17)
+
+   EVENT time: 340.545593,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=30): ddddddddddddddddddd
+
+   EVENT time: 342.043945,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 342.071960,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=18): rrrrrrrrrrrrrrrrrrr
+      A_timerinterrupt: Resending packet (seq=19): sssssssssssssssssss
+      A_timerinterrupt: Resending packet (seq=20): ttttttttttttttttttt
+      A_timerinterrupt: Resending packet (seq=21): uuuuuuuuuuuuuuuuuuu
+      A_timerinterrupt: Resending packet (seq=22): vvvvvvvvvvvvvvvvvvv
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=23): wwwwwwwwwwwwwwwwwww
+      A_timerinterrupt: Resending packet (seq=24): xxxxxxxxxxxxxxxxxxx
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=25): yyyyyyyyyyyyyyyyyyy
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 346.691101,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=17)
+
+   EVENT time: 347.022186,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=17). Dropping.
+
+   EVENT time: 348.781921,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=17). Dropping.
+
+   EVENT time: 348.931030,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=17)
+            TOLAYER3: packet being lost
+
+   EVENT time: 355.112976,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=17)
+            TOLAYER3: packet being lost
+
+   EVENT time: 357.071960,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=18): rrrrrrrrrrrrrrrrrrr
+      A_timerinterrupt: Resending packet (seq=19): sssssssssssssssssss
+      A_timerinterrupt: Resending packet (seq=20): ttttttttttttttttttt
+      A_timerinterrupt: Resending packet (seq=21): uuuuuuuuuuuuuuuuuuu
+      A_timerinterrupt: Resending packet (seq=22): vvvvvvvvvvvvvvvvvvv
+      A_timerinterrupt: Resending packet (seq=23): wwwwwwwwwwwwwwwwwww
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=24): xxxxxxxxxxxxxxxxxxx
+      A_timerinterrupt: Resending packet (seq=25): yyyyyyyyyyyyyyyyyyy
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 363.064636,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=18): rrrrrrrrrrrrrrrrrrr
+      B_input: Sending ACK (ack=18)
+
+   EVENT time: 367.963043,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=19): sssssssssssssssssss
+      B_input: Sending ACK (ack=19)
+
+   EVENT time: 372.071960,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=18): rrrrrrrrrrrrrrrrrrr
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=19): sssssssssssssssssss
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=20): ttttttttttttttttttt
+      A_timerinterrupt: Resending packet (seq=21): uuuuuuuuuuuuuuuuuuu
+      A_timerinterrupt: Resending packet (seq=22): vvvvvvvvvvvvvvvvvvv
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=23): wwwwwwwwwwwwwwwwwww
+      A_timerinterrupt: Resending packet (seq=24): xxxxxxxxxxxxxxxxxxx
+      A_timerinterrupt: Resending packet (seq=25): yyyyyyyyyyyyyyyyyyy
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 372.655060,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=18)
+   Warning: attempt to start a timer that is already started
+      A_input: timer + 15.000000
+
+   EVENT time: 377.061584,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=19)
+
+   EVENT time: 378.916473,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=19)
+   Warning: attempt to start a timer that is already started
+      A_input: timer + 15.000000
+
+   EVENT time: 380.832397,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=19)
+            TOLAYER3: packet being lost
+
+   EVENT time: 381.756683,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=19). Dropping.
+
+   EVENT time: 386.052582,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=19)
+
+   EVENT time: 387.071960,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=20): ttttttttttttttttttt
+      A_timerinterrupt: Resending packet (seq=21): uuuuuuuuuuuuuuuuuuu
+      A_timerinterrupt: Resending packet (seq=22): vvvvvvvvvvvvvvvvvvv
+      A_timerinterrupt: Resending packet (seq=23): wwwwwwwwwwwwwwwwwww
+      A_timerinterrupt: Resending packet (seq=24): xxxxxxxxxxxxxxxxxxx
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=25): yyyyyyyyyyyyyyyyyyy
+            TOLAYER3: packet being lost
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 390.504333,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=19)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 392.905670,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=19). Dropping.
+
+   EVENT time: 400.439209,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=20): ttttttttttttttttttt
+      B_input: Sending ACK (ack=20)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 402.071960,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=20): ttttttttttttttttttt
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=21): uuuuuuuuuuuuuuuuuuu
+      A_timerinterrupt: Resending packet (seq=22): vvvvvvvvvvvvvvvvvvv
+      A_timerinterrupt: Resending packet (seq=23): wwwwwwwwwwwwwwwwwww
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=24): xxxxxxxxxxxxxxxxxxx
+      A_timerinterrupt: Resending packet (seq=25): yyyyyyyyyyyyyyyyyyy
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 402.759155,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 408.503632,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=21): uuuuuuuuuuuuuuuuuuu
+      B_input: Sending ACK (ack=21)
+
+   EVENT time: 410.528168,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 412.163574,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=21)
+
+   EVENT time: 417.071960,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=20): ttttttttttttttttttt
+      A_timerinterrupt: Resending packet (seq=21): uuuuuuuuuuuuuuuuuuu
+      A_timerinterrupt: Resending packet (seq=22): vvvvvvvvvvvvvvvvvvv
+      A_timerinterrupt: Resending packet (seq=23): wwwwwwwwwwwwwwwwwww
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=24): xxxxxxxxxxxxxxxxxxx
+      A_timerinterrupt: Resending packet (seq=25): yyyyyyyyyyyyyyyyyyy
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 417.093506,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=21)
+
+   EVENT time: 418.753174,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=21)
+   Warning: attempt to start a timer that is already started
+      A_input: timer + 15.000000
+
+   EVENT time: 421.200928,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=21)
+
+   EVENT time: 422.762848,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=21)
+            TOLAYER3: packet being lost
+
+   EVENT time: 427.762329,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=21). Dropping.
+
+   EVENT time: 429.098602,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=21)
+
+   EVENT time: 432.071960,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=22): vvvvvvvvvvvvvvvvvvv
+      A_timerinterrupt: Resending packet (seq=23): wwwwwwwwwwwwwwwwwww
+      A_timerinterrupt: Resending packet (seq=24): xxxxxxxxxxxxxxxxxxx
+      A_timerinterrupt: Resending packet (seq=25): yyyyyyyyyyyyyyyyyyy
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 434.980103,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=21)
+
+   EVENT time: 435.330231,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=21). Dropping.
+
+   EVENT time: 437.929657,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=21). Dropping.
+
+   EVENT time: 442.265930,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=21)
+
+   EVENT time: 442.503998,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=21). Dropping.
+
+   EVENT time: 445.625458,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=21). Dropping.
+
+   EVENT time: 447.071960,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=22): vvvvvvvvvvvvvvvvvvv
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=23): wwwwwwwwwwwwwwwwwww
+      A_timerinterrupt: Resending packet (seq=24): xxxxxxxxxxxxxxxxxxx
+      A_timerinterrupt: Resending packet (seq=25): yyyyyyyyyyyyyyyyyyy
+            TOLAYER3: packet being lost
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 449.103973,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=21)
+
+   EVENT time: 450.361969,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=21). Dropping.
+
+   EVENT time: 450.946136,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=21)
+
+   EVENT time: 452.398651,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=21)
+
+   EVENT time: 454.996277,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=21)
+            TOLAYER3: packet being lost
+
+   EVENT time: 458.580872,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=21). Dropping.
+
+   EVENT time: 460.435181,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=22): vvvvvvvvvvvvvvvvvvv
+      B_input: Sending ACK (ack=22)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 461.441742,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=21). Dropping.
+
+   EVENT time: 462.071960,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=22): vvvvvvvvvvvvvvvvvvv
+      A_timerinterrupt: Resending packet (seq=23): wwwwwwwwwwwwwwwwwww
+      A_timerinterrupt: Resending packet (seq=24): xxxxxxxxxxxxxxxxxxx
+      A_timerinterrupt: Resending packet (seq=25): yyyyyyyyyyyyyyyyyyy
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 465.500946,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=23): wwwwwwwwwwwwwwwwwww
+      B_input: Sending ACK (ack=23)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 469.106934,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=21). Dropping.
+
+   EVENT time: 474.494080,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 475.168427,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=24): xxxxxxxxxxxxxxxxxxx
+      B_input: Sending ACK (ack=24)
+            TOLAYER3: packet being lost
+
+   EVENT time: 476.836670,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=25): yyyyyyyyyyyyyyyyyyy
+      B_input: Sending ACK (ack=25)
+
+   EVENT time: 477.071960,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=22): vvvvvvvvvvvvvvvvvvv
+      A_timerinterrupt: Resending packet (seq=23): wwwwwwwwwwwwwwwwwww
+      A_timerinterrupt: Resending packet (seq=24): xxxxxxxxxxxxxxxxxxx
+      A_timerinterrupt: Resending packet (seq=25): yyyyyyyyyyyyyyyyyyy
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 481.019897,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 483.460876,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 486.317657,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 490.392334,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 490.563782,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=25)
+      A_input: Stopping timer
+      send_window: Sending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+      send_window: Sending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+            TOLAYER3: packet being corrupted
+      send_window: Sending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      send_window: Sending packet (seq=29): ccccccccccccccccccc
+            TOLAYER3: packet being corrupted
+      send_window: Sending packet (seq=30): ddddddddddddddddddd
+
+   EVENT time: 492.196411,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=25)
+
+   EVENT time: 494.043945,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 495.447815,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 501.953888,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=25)
+
+   EVENT time: 502.373291,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 505.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 506.206146,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 507.536530,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 510.021454,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 512.713867,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=25)
+            TOLAYER3: packet being lost
+
+   EVENT time: 513.192505,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 515.394592,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being lost
+
+   EVENT time: 520.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+            TOLAYER3: packet being lost
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 521.272644,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being lost
+
+   EVENT time: 522.719238,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 528.638977,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 528.716553,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=25)
+
+   EVENT time: 530.258911,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 535.238220,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 535.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 540.687500,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 541.084473,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 542.300659,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=25)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 547.038879,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 547.645081,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 550.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 551.661438,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 556.556030,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 559.450195,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 559.969971,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 564.076904,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 565.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 568.111206,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 573.191528,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 574.428345,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 577.682861,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 580.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 584.069946,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 586.186462,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 588.786682,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 589.007080,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 591.725403,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 592.097656,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being lost
+
+   EVENT time: 595.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 597.018066,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being lost
+
+   EVENT time: 606.596069,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 610.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 611.392273,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 616.415283,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 620.165955,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=25)
+            TOLAYER3: packet being lost
+
+   EVENT time: 621.245239,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 622.854126,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 625.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 628.248413,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 630.262329,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 636.301514,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 639.452942,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being lost
+
+   EVENT time: 640.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 644.936401,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 649.660706,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 652.053345,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being lost
+
+   EVENT time: 652.696167,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 655.390015,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 655.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 657.115173,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 660.375610,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 664.758484,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 667.928833,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 670.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 673.991882,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=25)
+
+   EVENT time: 677.237488,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 678.880920,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=25)
+
+   EVENT time: 682.649963,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 683.186890,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 683.875793,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being lost
+
+   EVENT time: 685.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 686.257935,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 690.503296,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being lost
+
+   EVENT time: 693.559631,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 695.122498,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 696.739868,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 699.038879,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 700.365112,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 700.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 700.738586,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being lost
+
+   EVENT time: 707.684937,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 708.256714,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 712.480774,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 715.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 717.286438,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 719.504822,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 721.861572,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=25)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 728.694458,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 729.337219,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being lost
+
+   EVENT time: 730.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+            TOLAYER3: packet being lost
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 738.593506,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 740.012024,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 745.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 746.794434,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 751.388062,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 753.525269,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 759.804321,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 760.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 760.746094,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 761.053406,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 766.831665,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 768.638916,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being lost
+
+   EVENT time: 774.230225,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 775.334106,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 775.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 781.460327,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 782.642395,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 784.348755,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 786.276367,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 789.988098,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being lost
+
+   EVENT time: 790.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+            TOLAYER3: packet being lost
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 793.638428,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 799.514709,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 800.585388,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 802.314331,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 803.521729,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 805.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 810.169678,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 814.825623,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 817.238098,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being lost
+
+   EVENT time: 820.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 823.647827,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 825.100830,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being lost
+
+   EVENT time: 829.239685,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 834.519287,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 835.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 837.896729,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 838.378601,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 842.571411,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 847.320251,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 848.436951,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 849.425476,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 850.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 855.457703,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 856.887146,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+
+   EVENT time: 862.462341,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=25)
+            TOLAYER3: packet being lost
+
+   EVENT time: 862.695618,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=25). Dropping.
+
+   EVENT time: 865.414734,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=26): zzzzzzzzzzzzzzzzzzz
+      B_input: Sending ACK (ack=26)
+
+   EVENT time: 865.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=26): zzzzzzzzzzzzzzzzzzz
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 873.897278,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=26)
+   Warning: attempt to start a timer that is already started
+      A_input: timer + 15.000000
+
+   EVENT time: 875.344421,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=26)
+            TOLAYER3: packet being lost
+
+   EVENT time: 880.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 880.697266,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=26)
+            TOLAYER3: packet being lost
+
+   EVENT time: 885.973511,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=26)
+
+   EVENT time: 888.033020,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=26)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 892.584961,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=26). Dropping.
+
+   EVENT time: 895.508789,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=26)
+
+   EVENT time: 895.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+            TOLAYER3: packet being lost
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 900.183777,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=26)
+            TOLAYER3: packet being lost
+
+   EVENT time: 901.813599,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 905.291443,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=26)
+
+   EVENT time: 907.905029,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=26). Dropping.
+
+   EVENT time: 910.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 913.541382,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=26)
+
+   EVENT time: 916.737122,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=26). Dropping.
+
+   EVENT time: 920.573608,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=26). Dropping.
+
+   EVENT time: 920.877319,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=26)
+
+   EVENT time: 924.598572,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=26). Dropping.
+
+   EVENT time: 925.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 926.200867,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=26)
+
+   EVENT time: 930.728516,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=26). Dropping.
+
+   EVENT time: 936.129639,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=26)
+            TOLAYER3: packet being lost
+
+   EVENT time: 940.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 942.445923,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=26)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 943.562988,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 949.723938,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=26)
+            TOLAYER3: packet being lost
+
+   EVENT time: 952.580811,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=26)
+            TOLAYER3: packet being lost
+
+   EVENT time: 955.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 959.466797,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=26)
+
+   EVENT time: 966.496765,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=26)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 967.059814,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=26). Dropping.
+
+   EVENT time: 968.499451,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 970.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+            TOLAYER3: packet being corrupted
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 975.380859,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=26)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 979.670288,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 981.424683,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=26)
+            TOLAYER3: packet being lost
+
+   EVENT time: 982.491272,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=26)
+
+   EVENT time: 984.115112,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=26)
+
+   EVENT time: 985.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 989.492676,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=26). Dropping.
+
+   EVENT time: 992.440674,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      B_input: Sending ACK (ack=27)
+            TOLAYER3: packet being lost
+
+   EVENT time: 996.771362,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=26). Dropping.
+
+   EVENT time: 1000.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=27): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: Resending packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 1000.802002,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=28): bbbbbbbbbbbbbbbbbbb
+      B_input: Sending ACK (ack=28)
+
+   EVENT time: 1006.857422,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=28)
+   Warning: attempt to start a timer that is already started
+      A_input: timer + 15.000000
+
+   EVENT time: 1008.804321,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=28)
+
+   EVENT time: 1015.563782,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 1015.805725,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=28). Dropping.
+
+   EVENT time: 1017.074036,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=28)
+
+   EVENT time: 1021.890381,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=28)
+
+   EVENT time: 1023.857178,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=28). Dropping.
+
+   EVENT time: 1028.776123,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=28)
+
+   EVENT time: 1030.563721,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 1031.470703,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=29): ccccccccccccccccccc
+      B_input: Sending ACK (ack=29)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1033.074097,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=28). Dropping.
+
+   EVENT time: 1040.002197,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=28). Dropping.
+
+   EVENT time: 1040.465210,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=30): ddddddddddddddddddd
+      B_input: Sending ACK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1045.563721,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=29): ccccccccccccccccccc
+            TOLAYER3: packet being lost
+      A_timerinterrupt: Resending packet (seq=30): ddddddddddddddddddd
+      A_timerinterrupt: timer + 15.000000
+
+   EVENT time: 1049.301758,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+
+   EVENT time: 1050.593750,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1053.531738,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=30)
+      A_input: Stopping timer
+
+   EVENT time: 1055.678467,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1063.120239,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+
+   EVENT time: 1065.122925,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1066.466919,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1068.900269,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1073.292847,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1078.225952,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1085.331055,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1086.745850,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1092.579102,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1094.195068,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1100.342773,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+
+   EVENT time: 1102.359009,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1107.651367,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1108.389282,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1112.168823,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1118.378906,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1120.946167,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1122.863770,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1130.145752,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1138.302002,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1140.434692,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1141.919434,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1142.418701,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1148.927002,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1149.692139,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1154.680664,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1156.930786,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1157.796387,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1163.388672,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1166.375854,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1169.446289,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1170.614868,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1177.828369,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1179.186157,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1182.929810,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1186.138550,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1192.114624,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1193.629639,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1198.246826,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1200.527222,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1200.956665,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1205.773193,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1209.888184,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1216.740234,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1219.404053,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1220.965942,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1228.467041,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1233.273682,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1236.832764,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1242.576294,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1244.358398,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+
+   EVENT time: 1253.244141,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1253.915527,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1261.408203,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+
+   EVENT time: 1263.359497,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1263.702881,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1264.889771,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1265.890259,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1268.894043,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1270.482910,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1273.364380,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1276.092163,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+
+   EVENT time: 1282.708496,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1284.975586,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1287.105347,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1289.755371,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1292.748291,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1298.331055,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1300.103149,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1302.265869,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1309.653809,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1309.878174,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1314.415405,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1315.838379,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1316.758057,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1321.593262,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1324.283447,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1330.993774,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1331.426758,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+
+   EVENT time: 1333.091919,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1336.344238,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1336.860596,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1340.615967,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1341.446655,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1345.374878,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1346.924194,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1350.989990,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1354.005371,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1358.159912,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1361.619263,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1362.154297,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1366.494995,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1368.163818,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1368.168457,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1370.936279,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1372.648193,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+
+   EVENT time: 1377.253418,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1379.037842,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1387.156250,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1389.998413,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1394.949219,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1403.808228,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1412.816895,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1413.006470,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1415.970093,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1419.972534,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1420.363159,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1423.467773,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1424.472778,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1425.666992,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1427.693848,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1429.298584,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1432.123047,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1438.086914,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1442.946655,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1446.272705,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1446.739624,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1447.768188,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1454.498169,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1456.471191,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1463.290405,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1467.225708,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1469.631836,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1473.149292,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1475.057861,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1478.839111,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1484.259155,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1488.621948,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1494.144653,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1497.992798,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1500.845947,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1502.041504,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1506.081543,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1507.536987,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1514.952515,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1515.035767,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1520.483276,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1521.528687,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1525.458496,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1530.505859,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1531.404053,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1531.868652,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+
+   EVENT time: 1533.544556,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1536.350220,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1539.629028,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1542.241699,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1543.986572,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1546.334839,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+
+   EVENT time: 1548.071045,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1554.742432,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1561.754272,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+
+   EVENT time: 1563.453003,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1571.316772,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1574.156006,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1579.682129,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1580.128296,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1583.442139,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1584.959351,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1589.678711,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1591.844971,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1593.402100,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1594.128052,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1598.438110,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1600.867432,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1602.995850,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1606.585083,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1609.576172,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1614.888062,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1617.576050,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1619.971313,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1626.042114,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1627.102417,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1635.026978,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1642.031250,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1643.518799,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1644.365601,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1646.875854,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being lost
+
+   EVENT time: 1649.611938,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1651.396606,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1654.897095,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+
+   EVENT time: 1655.140381,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 1656.340088,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=30)
+
+   EVENT time: 1664.857178,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 1666.637939,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=30). Dropping.
+   Simulator terminated at time 1666.637939
+   after sending 30 msgs from layer5

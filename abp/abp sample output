@@ -1,0 +1,232 @@
+Alternating-Bit-Protocol Sample Outputs
+   $ gcc -o abp.exe abp.c
+   $ ./abp.exe 10 0.1 0.3 1000 2
+   the number of messages to simulate: 10
+   packet loss probability: 0.100000
+   packet corruption probability: 0.300000
+   average time between messages from sender's layer5: 1000.000000
+   TRACE: 2
+
+   EVENT time: 761.689941,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=1): aaaaaaaaaaaaaaaaaaa
+      send_window: Sending packet (seq=1): aaaaaaaaaaaaaaaaaaa
+
+   EVENT time: 767.939270,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=1): aaaaaaaaaaaaaaaaaaa
+      B_input: Sending ACK (ack=1)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 771.689941,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=1): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: timer + 10.000000
+
+   EVENT time: 774.982239,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=1)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 775.619873,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 777.065857,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 781.689941,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=1): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: timer + 10.000000
+
+   EVENT time: 788.479065,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=1)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 789.538147,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 791.689941,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=1): aaaaaaaaaaaaaaaaaaa
+            TOLAYER3: packet being lost
+      A_timerinterrupt: timer + 10.000000
+
+   EVENT time: 801.689941,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=1): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: timer + 10.000000
+
+   EVENT time: 811.059265,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=1)
+            TOLAYER3: packet being lost
+
+   EVENT time: 811.689941,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=1): aaaaaaaaaaaaaaaaaaa
+      A_timerinterrupt: timer + 10.000000
+
+   EVENT time: 816.163635,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=1)
+
+   EVENT time: 817.645142,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=1)
+      A_input: Stopping timer
+
+   EVENT time: 2707.194824,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=2): bbbbbbbbbbbbbbbbbbb
+      send_window: Sending packet (seq=2): bbbbbbbbbbbbbbbbbbb
+
+   EVENT time: 2710.392090,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=2): bbbbbbbbbbbbbbbbbbb
+      B_input: Sending ACK (ack=2)
+
+   EVENT time: 2717.194824,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=2): bbbbbbbbbbbbbbbbbbb
+      A_timerinterrupt: timer + 10.000000
+
+   EVENT time: 2717.836426,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=2)
+      A_input: Stopping timer
+
+   EVENT time: 2718.730225,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=2)
+            TOLAYER3: packet being lost
+
+   EVENT time: 4307.802734,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=3): ccccccccccccccccccc
+      send_window: Sending packet (seq=3): ccccccccccccccccccc
+
+   EVENT time: 4315.479492,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=3): ccccccccccccccccccc
+      B_input: Sending ACK (ack=3)
+
+   EVENT time: 4317.802734,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=3): ccccccccccccccccccc
+      A_timerinterrupt: timer + 10.000000
+
+   EVENT time: 4319.239746,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=3)
+      A_input: Stopping timer
+
+   EVENT time: 4327.319824,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=3)
+
+   EVENT time: 4332.848145,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=3). Dropping.
+
+   EVENT time: 5622.885254,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=4): ddddddddddddddddddd
+      send_window: Sending packet (seq=4): ddddddddddddddddddd
+
+   EVENT time: 5626.798828,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=4): ddddddddddddddddddd
+      B_input: Sending ACK (ack=4)
+
+   EVENT time: 5628.980469,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=4)
+      A_input: Stopping timer
+
+   EVENT time: 7153.585449,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=5): eeeeeeeeeeeeeeeeeee
+      send_window: Sending packet (seq=5): eeeeeeeeeeeeeeeeeee
+
+   EVENT time: 7155.334961,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=5): eeeeeeeeeeeeeeeeeee
+      B_input: Sending ACK (ack=5)
+
+   EVENT time: 7156.488770,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=5)
+      A_input: Stopping timer
+
+   EVENT time: 8415.660156,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=6): fffffffffffffffffff
+      send_window: Sending packet (seq=6): fffffffffffffffffff
+
+   EVENT time: 8422.771484,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=6): fffffffffffffffffff
+      B_input: Sending ACK (ack=6)
+
+   EVENT time: 8425.660156,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=6): fffffffffffffffffff
+      A_timerinterrupt: timer + 10.000000
+
+   EVENT time: 8431.746094,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=6)
+      A_input: Stopping timer
+
+   EVENT time: 8431.862305,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=6)
+
+   EVENT time: 8438.836914,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=6). Dropping.
+
+   EVENT time: 9226.524414,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=7): ggggggggggggggggggg
+      send_window: Sending packet (seq=7): ggggggggggggggggggg
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 9230.185547,  type: 2, fromlayer3  entity: 1
+      B_input: Received corrupted packet. Sending NAK (ack=6)
+            TOLAYER3: packet being corrupted
+
+   EVENT time: 9236.524414,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=7): ggggggggggggggggggg
+      A_timerinterrupt: timer + 10.000000
+
+   EVENT time: 9237.593750,  type: 2, fromlayer3  entity: 0
+      A_input: Found corrupted packet. Dropping.
+
+   EVENT time: 9245.927734,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=7): ggggggggggggggggggg
+      B_input: Sending ACK (ack=7)
+
+   EVENT time: 9246.524414,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=7): ggggggggggggggggggg
+      A_timerinterrupt: timer + 10.000000
+
+   EVENT time: 9248.892578,  type: 2, fromlayer3  entity: 1
+      B_input: Received unexpected seq. Sending NAK (ack=7)
+
+   EVENT time: 9252.824219,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=7)
+      A_input: Stopping timer
+
+   EVENT time: 9259.999023,  type: 2, fromlayer3  entity: 0
+      A_input: Received NAK (ack=7). Dropping.
+
+   EVENT time: 10491.478516,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=8): hhhhhhhhhhhhhhhhhhh
+      send_window: Sending packet (seq=8): hhhhhhhhhhhhhhhhhhh
+
+   EVENT time: 10496.769531,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=8): hhhhhhhhhhhhhhhhhhh
+      B_input: Sending ACK (ack=8)
+
+   EVENT time: 10500.645508,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=8)
+      A_input: Stopping timer
+
+   EVENT time: 11336.098633,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=9): iiiiiiiiiiiiiiiiiii
+      send_window: Sending packet (seq=9): iiiiiiiiiiiiiiiiiii
+
+   EVENT time: 11344.764648,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=9): iiiiiiiiiiiiiiiiiii
+      B_input: Sending ACK (ack=9)
+
+   EVENT time: 11346.098633,  type: 0, timerinterrupt   entity: 0
+      A_timerinterrupt: Resending packet (seq=9): iiiiiiiiiiiiiiiiiii
+            TOLAYER3: packet being lost
+      A_timerinterrupt: timer + 10.000000
+
+   EVENT time: 11349.229492,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=9)
+      A_input: Stopping timer
+
+   EVENT time: 12499.638672,  type: 1, fromlayer5  entity: 0
+      A_output: Bufferred packet (seq=10): jjjjjjjjjjjjjjjjjjj
+      send_window: Sending packet (seq=10): jjjjjjjjjjjjjjjjjjj
+
+   EVENT time: 12501.741211,  type: 2, fromlayer3  entity: 1
+      B_input: recv packet (seq=10): jjjjjjjjjjjjjjjjjjj
+      B_input: Sending ACK (ack=10)
+
+   EVENT time: 12502.747070,  type: 2, fromlayer3  entity: 0
+      A_input: Received ACK (ack=10)
+      A_input: Stopping timer
+   Simulator terminated at time 12502.747070
+   after sending 10 msgs from layer5
+

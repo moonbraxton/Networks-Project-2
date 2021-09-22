@@ -213,7 +213,7 @@ void A_init(void) {
     A.base = 1;
     A.nextseq = 1;
     A.window_size = 8;
-    A.estimated_rtt = 5;
+    A.estimated_rtt = 15;
     A.buffer_next = 1;
 }
 
