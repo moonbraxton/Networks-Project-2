@@ -100,7 +100,7 @@ void A_input(struct pkt packet) {
         return;
     }
 
-    //if the packet acknum is incorrect, drop the packet
+    //if the packet is a NAK, drop the packet
     if (packet.acknum < A.base) {
         printf("   A_input: Received NAK (ack=%d). Dropping.\n", packet.acknum);
         return;
@@ -212,8 +212,8 @@ void B_timerinterrupt(void) {
 void A_init(void) {
     A.base = 1;
     A.nextseq = 1;
-    A.window_size = 8;
-    A.estimated_rtt = 5;
+    A.window_size = 1;
+    A.estimated_rtt = 10;
     A.buffer_next = 1;
 }
 
