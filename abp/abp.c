@@ -612,33 +612,3 @@ void tolayer5(int AorB, char datasent[20]) {
         printf("\n");
     }
 }
-
-/*
-
-$ gcc prog2_gbn.c
-$ ./a.exe
-usage: ./a.exe  num_sim  prob_loss  prob_corrupt  interval  debug_level
-$ ./a.exe 20 0.2 0.2 10 2 | less
-$ ./a.exe 20 0.2 0.2 10 2 | grep 'recv packet'
-  B_input: recv packet (seq=1): aaaaaaaaaaaaaaaaaaa
-  B_input: recv packet (seq=2): bbbbbbbbbbbbbbbbbbb
-  B_input: recv packet (seq=3): ccccccccccccccccccc
-  B_input: recv packet (seq=4): ddddddddddddddddddd
-  B_input: recv packet (seq=5): eeeeeeeeeeeeeeeeeee
-  B_input: recv packet (seq=6): fffffffffffffffffff
-  B_input: recv packet (seq=7): ggggggggggggggggggg
-  B_input: recv packet (seq=8): hhhhhhhhhhhhhhhhhhh
-  B_input: recv packet (seq=9): iiiiiiiiiiiiiiiiiii
-  B_input: recv packet (seq=10): jjjjjjjjjjjjjjjjjjj
-  B_input: recv packet (seq=11): kkkkkkkkkkkkkkkkkkk
-  B_input: recv packet (seq=12): lllllllllllllllllll
-  B_input: recv packet (seq=13): mmmmmmmmmmmmmmmmmmm
-  B_input: recv packet (seq=14): nnnnnnnnnnnnnnnnnnn
-  B_input: recv packet (seq=15): ooooooooooooooooooo
-  B_input: recv packet (seq=16): ppppppppppppppppppp
-  B_input: recv packet (seq=17): qqqqqqqqqqqqqqqqqqq
-  B_input: recv packet (seq=18): rrrrrrrrrrrrrrrrrrr
-  B_input: recv packet (seq=19): sssssssssssssssssss
-  B_input: recv packet (seq=20): ttttttttttttttttttt
-
-*/
